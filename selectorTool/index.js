@@ -24,9 +24,9 @@
     if (!window.jQuery) {
         importFile('js', '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
     }
-    importFile('js', baseUrl + 'ZeroClipboard.js?r=' + Math.random());
+    importFile('js', baseUrl + 'ZeroClipboard.min.js?r=' + Math.random());
     importFile('js', baseUrl + 'selectorTool_v1.js?r=' + Math.random());
-    importFile('css', baseUrl + 'SelectorTool_v1.css?r=' + Math.random());
+    importFile('css', baseUrl + 'selectorTool_v1.css?r=' + Math.random());
 
     window.selectorTools = {};
     window.selectorTools.srcClipboardSwf = baseUrl + 'ZeroClipboard.swf';
