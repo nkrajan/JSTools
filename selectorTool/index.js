@@ -23,7 +23,7 @@
 
     window.selectorTool = {};
     window.selectorTool.srcClipboardSwf = baseUrl + 'ZeroClipboard.swf';
-    window.selectorTool.hasJQuery = window.jQuery === $;
+    window.selectorTool.hasJQuery = window.jQuery === window.$;
     if (!window.selectorTool.hasJQuery || $.fn.jquery < '1.6') {
         importFile('js', '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
     }
