@@ -21,13 +21,13 @@
             }
         };
 
-    if (!window.jQuery) {
+    window.selectorTool = {};
+    window.selectorTool.srcClipboardSwf = baseUrl + 'ZeroClipboard.swf';
+    window.selectorTool.hasJQuery = window.jQuery === $;
+    if (!window.selectorTool.hasJQuery || $.fn.jquery < '1.6') {
         importFile('js', '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
     }
     importFile('js', baseUrl + 'ZeroClipboard.min.js?r=' + Math.random());
     importFile('js', baseUrl + 'selectorTool_v1.js?r=' + Math.random());
     importFile('css', baseUrl + 'selectorTool_v1.css?r=' + Math.random());
-
-    window.selectorTools = {};
-    window.selectorTools.srcClipboardSwf = baseUrl + 'ZeroClipboard.swf';
 })(window, document);

@@ -1,4 +1,6 @@
-jQuery.noConflict();
+if (!window.selectorTool.hasJQuery) {
+    jQuery.noConflict();
+}
 (function(window, document, $, undefined) {
     var getSeletor = function(dCurrent) {
             //First, get full selector whole tagname and classname and id, then use '>' contact each other order by parent to child.
@@ -178,7 +180,7 @@ jQuery.noConflict();
             </div>\
             <div id="selector_tool_msg"><span>succeed</span></div>'));
     ZeroClipboard.setDefaults({
-      moviePath: window.selectorTools.srcClipboardSwf,
+      moviePath: window.selectorTool.srcClipboardSwf,
       trustedDomains: '*',
       hoverClass: 'hover',
       activeClass: 'active',
