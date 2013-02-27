@@ -1,6 +1,8 @@
 jQuery.noConflict();
 (function(window, document, $, undefined) {
     var getSeletor = function(dCurrent) {
+            //First, get full selector whole tagname and classname and id, then use '>' contact each other order by parent to child.
+            //Of course, it's not correct.
             var strSelector = (function(node) {
                     var sParentSelector = (node.prop('id') && node.prop('id').indexOf('yui_') !== 0) || node.parent()[0] === document ? '' : arguments.callee(node.parent()),
                         sNodeTagName = node.prop('tagName').toLowerCase(),
@@ -19,6 +21,7 @@ jQuery.noConflict();
                     return sParentSelector + '>'  + sNodeTagName + sNodeId + sNodeClass;
                 })(dCurrent).slice(1),
                 arrSelector;
+            //Second, some node selectors map more than one element, it must be add ':nth-of-type(n)'. 
             if ($(strSelector).length > 1) {
                 var arrTemp = strSelector.split('>');
                 $(arrTemp).each(function(k, v) {
@@ -32,6 +35,7 @@ jQuery.noConflict();
                 });
                 strSelector = arrTemp.join('>');
             }
+            //Third, some '>' are not necessary, we can remove them.
             strSelector = (function(str, from) {
                 var index = str.indexOf('>', from),
                     strTemp;
@@ -44,11 +48,13 @@ jQuery.noConflict();
                 }
                 return arguments.callee(str, index + 1);
             })(strSelector, 0);
+            //At last, compress selectors.
             arrSelector = strSelector.replace(/(>)/g, ' $1').split(' ');
             $(arrSelector).each(function(k, v) {
                 var arrTemp = arrSelector.slice(),
                     suffixB = '',
                     suffixE = '';
+                //if this node selector is not necessary, we can remove it.
                 if (k > 0) {
                     arrTemp[k] = '';
                     if ($(arrTemp.join(' ')).length === 1 && dCurrent.index(arrTemp.join(' ')) === 0) {
@@ -58,6 +64,8 @@ jQuery.noConflict();
                         arrTemp[k] = v;
                     }
                 }
+                //one node selector maybe has tagname and id and more than one classname,
+                //so, we will make it more concise.
                 if (v.indexOf('>') === 0) {
                     suffixB = '>';
                     arrTemp[k] = arrTemp[k].slice(1);
