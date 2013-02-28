@@ -51,7 +51,7 @@ if (!window.selectorTool.hasJQuery) {
             return tagName === 'html' ? '' : tagName + getNodeId(node) + getNodeClassName(node);
         },
         //返回最终的selector数组
-        //在这里各种计算，最终留下最合适的selector
+        //在这里各种计算，最终留下最合适的selector，看不明白找我吧
         getArrSelector = function(node, arrSelector) {
             var fullSelector,
                 fullSelectorTemp,
@@ -99,7 +99,7 @@ if (!window.selectorTool.hasJQuery) {
                     })(arrTemp).join('');
                 }
                 //大功告成
-                if (dTemp.equals(node)) {
+                if (dTemp.equals(dCurrent)) {
                     return arrSelector;
                 }
             }
