@@ -200,7 +200,7 @@ if (!window.selectorTool.hasJQuery) {
         $($(this).closest('li').find('.selector_tool_item_val').text()).removeClass('selector_tool_selected').addClass('selector_tool_mark');
         $(this).closest('li').remove();
     }).append($('<div id="selector_tool_overlay">\
-                <h4>selector tools</h4>\
+                <h4>selector tool</h4>\
                 <ul style="max-height:' + ($(window).height() - 80) + 'px"></ul>\
                 <p class="ft">\
                     <span class="selector_tool_btns">\
