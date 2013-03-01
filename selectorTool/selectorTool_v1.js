@@ -77,7 +77,7 @@ if (!window.selectorTool.hasJQuery) {
                         fullSelectorTemp = fullSelectorTemp.replace(/^([^>\s]+\s)([^>\s]+\s)/, '$1');
                         if (fullSelector !== fullSelectorTemp && dTemp.equals(fullSelectorTemp)) {
                             arrSelector.splice(1, 1);
-                            fullSelector = arrSelector.join('');
+                            fullSelector = fullSelectorTemp;
                         }
                     }
                 }
